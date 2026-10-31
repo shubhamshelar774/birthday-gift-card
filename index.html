@@ -10,28 +10,47 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="background-art" aria-hidden="true">
+      <div class="photo-side" aria-hidden="true"></div>
+      <div class="right-scene" aria-hidden="true"></div>
+    </div>
+
     <div class="gift-wrapper">
       <section id="entryScreen" class="screen entry-screen">
         <div class="entry-box">
           <p class="eyebrow">A special surprise</p>
-          <h1>Happy Birthday</h1>
+          <h1>For Birthday Girl</h1>
           <label>
             <span>Enter your name</span>
             <input id="guestNameInput" type="text" placeholder="Your name" autocomplete="off" />
           </label>
-          <button id="openCardBtn" class="primary-btn">Click here for your gift</button>
+          <button id="openCardBtn" class="primary-btn" type="button">Click here for your Birthday gift</button>
         </div>
       </section>
 
       <section id="cardScreen" class="screen card-screen hidden">
         <button id="backBtn" class="back-btn">Change name</button>
         <div id="card" class="birthday-card theme-sunset">
+          <div class="photo-collage" aria-hidden="true">
+            <div class="collage-item"></div>
+            <div class="collage-item"></div>
+            <div class="collage-item"></div>
+            <div class="collage-item"></div>
+          </div>
+          <div class="heart-sparkles" aria-hidden="true">
+            <span>❤</span>
+            <span>❤</span>
+            <span>❤</span>
+            <span>❤</span>
+            <span>❤</span>
+            <span>❤</span>
+          </div>
           <div class="confetti-layer" aria-hidden="true"></div>
           <div class="card-content">
             <div class="top-badge">Happy Birthday</div>
-            <h2 id="previewName">Your Name</h2>
-            <p id="previewMessage">Wow, it's your day today! You are loved, admired, and celebrated in every way. May your birthday be as beautiful, joyful, and magical as you are.</p>
-            <div class="signature" id="previewFrom">With love</div>
+            <h2 id="previewName">Dipalee</h2>
+            <p id="previewMessage">Wishing the happiest birthday to the girl who completely owns my heart! 💕 Just a quick reminder: I’m never going to stop loving you. Haha Well, okay, I might stop when a battery hits 101%, when time hits 25, or on February 30th—so basically, never! This is your day, and I hope you have the most amazing time! I just wanted to say you how greatful it is to have friend like "YOU", Enjoy your special day...!!</p>
+            <div class="signature" id="previewFrom">Forever yours</div>
             <div class="ornament">✦ ✦ ✦</div>
           </div>
         </div>

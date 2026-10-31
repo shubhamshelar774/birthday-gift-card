@@ -9,32 +9,18 @@ const previewMessage = document.getElementById('previewMessage');
 const previewFrom = document.getElementById('previewFrom');
 const confettiLayer = document.querySelector('.confetti-layer');
 
+const VALID_NAME = 'dipalee';
+
 const themes = {
   sunset: {
     name: 'theme-sunset',
     colors: ['#ff5ca8', '#ff7d5a', '#ffd166', '#9b5de5', '#00bbf9']
-  },
-  rose: {
-    name: 'theme-rose',
-    colors: ['#ff6b9a', '#f4a261', '#ffcad4', '#9d4edd', '#f72585']
-  },
-  ocean: {
-    name: 'theme-ocean',
-    colors: ['#00b4d8', '#48cae4', '#90e0ef', '#ffb703', '#a2d2ff']
-  },
-  purple: {
-    name: 'theme-purple',
-    colors: ['#8ec5fc', '#d596ff', '#ff9bd2', '#c77dff', '#9bf6ff']
-  },
-  dark: {
-    name: 'theme-dark',
-    colors: ['#f72585', '#ffb703', '#90e0ef', '#f8f9fa', '#b5179e']
   }
 };
 
 function generateConfetti(colors) {
   confettiLayer.innerHTML = '';
-  const pieceCount = 25;
+  const pieceCount = 30;
 
   for (let i = 0; i < pieceCount; i += 1) {
     const piece = document.createElement('span');
@@ -49,12 +35,14 @@ function generateConfetti(colors) {
 }
 
 function showCard(name) {
-  const safeName = name.trim() || 'Beautiful';
-  const finalMessage = `Wow, it's your day today, ${safeName}! You are loved, admired, and celebrated in every way. May your birthday be as beautiful, joyful, and magical as you are.`;
+  const safeName = name.trim();
+  const finalMessage = previewMessage && previewMessage.textContent
+    ? previewMessage.textContent.trim()
+    : "Wishing the happiest birthday to the girl who completely owns my heart! 💕 Just a quick reminder: I’m never going to stop loving you. Well, okay, I might stop when a battery hits 101%, when time hits 25, or on February 30th—so basically, never! Enjoy your special day...!!";
 
   previewName.textContent = safeName;
   previewMessage.textContent = finalMessage;
-  previewFrom.textContent = 'With love';
+  previewFrom.textContent = 'Forever yours';
 
   const selectedTheme = themes.sunset;
   card.className = `birthday-card ${selectedTheme.name}`;
@@ -62,6 +50,15 @@ function showCard(name) {
 
   entryScreen.classList.add('hidden');
   cardScreen.classList.remove('hidden');
+  entryScreen.style.display = 'none';
+  cardScreen.style.display = 'flex';
+}
+
+function showEntryScreen() {
+  entryScreen.classList.remove('hidden');
+  cardScreen.classList.add('hidden');
+  entryScreen.style.display = 'flex';
+  cardScreen.style.display = 'none';
 }
 
 openCardBtn.addEventListener('click', () => {
@@ -73,22 +70,30 @@ openCardBtn.addEventListener('click', () => {
     return;
   }
 
+  if (name.toLowerCase() !== VALID_NAME) {
+    alert("It's not your birthday yet. Please enter the correct name.");
+    guestNameInput.value = '';
+    guestNameInput.focus();
+    return;
+  }
+
   showCard(name);
 });
 
 backBtn.addEventListener('click', () => {
-  cardScreen.classList.add('hidden');
-  entryScreen.classList.remove('hidden');
+  showEntryScreen();
   guestNameInput.value = '';
   guestNameInput.focus();
 });
 
 window.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter' && !cardScreen.classList.contains('hidden')) {
+  if (event.key === 'Enter' && cardScreen && !cardScreen.classList.contains('hidden')) {
     return;
   }
 
-  if (event.key === 'Enter' && !entryScreen.classList.contains('hidden')) {
+  if (event.key === 'Enter' && entryScreen && !entryScreen.classList.contains('hidden')) {
     openCardBtn.click();
   }
 });
+
+showEntryScreen();
