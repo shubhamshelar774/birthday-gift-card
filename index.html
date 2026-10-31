@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Gift Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="gift-wrapper">
+      <section id="entryScreen" class="screen entry-screen">
+        <div class="entry-box">
+          <p class="eyebrow">A special surprise</p>
+          <h1>Happy Birthday</h1>
+          <label>
+            <span>Enter your name</span>
+            <input id="guestNameInput" type="text" placeholder="Your name" autocomplete="off" />
+          </label>
+          <button id="openCardBtn" class="primary-btn">Click here for your gift</button>
+        </div>
+      </section>
+
+      <section id="cardScreen" class="screen card-screen hidden">
+        <button id="backBtn" class="back-btn">Change name</button>
+        <div id="card" class="birthday-card theme-sunset">
+          <div class="confetti-layer" aria-hidden="true"></div>
+          <div class="card-content">
+            <div class="top-badge">Happy Birthday</div>
+            <h2 id="previewName">Your Name</h2>
+            <p id="previewMessage">Wow, it's your day today! You are loved, admired, and celebrated in every way. May your birthday be as beautiful, joyful, and magical as you are.</p>
+            <div class="signature" id="previewFrom">With love</div>
+            <div class="ornament">✦ ✦ ✦</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
